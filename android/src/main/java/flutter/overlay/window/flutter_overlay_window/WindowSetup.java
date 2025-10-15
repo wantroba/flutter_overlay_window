@@ -20,6 +20,8 @@ public abstract class WindowSetup {
     static String positionGravity = "none";
     static int notificationVisibility = NotificationCompat.VISIBILITY_PRIVATE;
     static boolean enableDrag = false;
+    static String notificationIconResType = "mipmap";
+    static String notificationIconName = "ic_launcher";
 
 
     static void setNotificationVisibility(String name) {
@@ -97,5 +99,10 @@ public abstract class WindowSetup {
             return;
         }
 
+    }
+
+    static void setNotificationIcon(String notificationIcon) {
+        notificationIconResType = "drawable";
+        notificationIconName = notificationIcon;
     }
 }

@@ -332,7 +332,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
         }
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 0, notificationIntent, pendingFlags);
-        final int notifyIcon = getDrawableResourceId("mipmap", "launcher");
+        final int notifyIcon = getDrawableResourceId(WindowSetup.notificationIconResType, WindowSetup.notificationIconName);
         Notification notification = new NotificationCompat.Builder(this, OverlayConstants.CHANNEL_ID)
                 .setContentTitle(WindowSetup.overlayTitle)
                 .setContentText(WindowSetup.overlayContent)
@@ -358,7 +358,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
     }
 
     private int getDrawableResourceId(String resType, String name) {
-        return getApplicationContext().getResources().getIdentifier(String.format("ic_%s", name), resType, getApplicationContext().getPackageName());
+        return getApplicationContext().getResources().getIdentifier(name, resType, getApplicationContext().getPackageName());
     }
 
     private int dpToPx(int dp) {

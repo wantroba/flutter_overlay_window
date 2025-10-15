@@ -39,6 +39,9 @@ class FlutterOverlayWindow {
   /// `positionGravity` the overlay postion after drag and default is [PositionGravity.none]
   ///
   /// `startPosition` the overlay start position and default is null
+  ///
+  /// `notificationIcon` the notification icon (file must be in the android/app/src/main/res/drawable folder)
+  ///
   static Future<void> showOverlay({
     int height = WindowSize.fullCover,
     int width = WindowSize.matchParent,
@@ -50,6 +53,7 @@ class FlutterOverlayWindow {
     bool enableDrag = false,
     PositionGravity positionGravity = PositionGravity.none,
     OverlayPosition? startPosition,
+    String? notificationIcon,
   }) async {
     await _channel.invokeMethod(
       'showOverlay',
@@ -64,6 +68,7 @@ class FlutterOverlayWindow {
         "notificationVisibility": visibility.name,
         "positionGravity": positionGravity.name,
         "startPosition": startPosition?.toMap(),
+        "notificationIcon" : notificationIcon
       },
     );
   }
